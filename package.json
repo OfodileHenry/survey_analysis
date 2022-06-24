@@ -1,0 +1,18 @@
+{
+  "name": "node_react",
+  "version": "1.0.0",
+  "description": "a_node_react_web_project_application",
+  "main": "index.js",
+  "engines": {
+    "node": "8.11.0",
+    "npm": "16.15.1"
+  },
+  "scripts": {
+    "scripts": "node index.js"
+  },
+  "author": "ofodilechukwuka@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
