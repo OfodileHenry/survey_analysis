@@ -4,8 +4,8 @@
   "description": "a_node_react_web_project_application",
   "main": "index.js",
   "engines": {
-    "node": "8.11.0",
-    "npm": "16.15.1"
+    "node": "16.15.1",
+    "npm": "8.11.1"
   },
   "scripts": {
     "scripts": "node index.js"
