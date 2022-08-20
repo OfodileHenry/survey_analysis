@@ -1,17 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import materializeCSS from "materialize-css/dist/css/materialize.min.css";
+import React from "react";
+import { createRoot } from "react-dom/client";
+// import ReactDOM from "react-dom";
+import { Provider } from "react-redux"; //This ensures that the react-redux library is available
+//to every single component of the react app
+import { createStore, applyMiddleware } from "redux";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import reduxThunk from "redux-thunk";
+
+import App from "./components/App";
+
+import reducers from "./reducers";
+
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>,
+//   document.getElementById("root")
+// );
+
+const container = document.getElementById("root");
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+console.log("STRIPE KEY IS", process.env.REACT_APP_STRIPE_KEY);
+console.log("ENVIRONMENT IS", process.env.NODE_ENV);
