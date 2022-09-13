@@ -2,6 +2,10 @@ import React from "react";
 
 import StripeCheckout from "react-stripe-checkout";
 
+import { connect } from "react-redux";
+
+import * as actions from "../actions";
+
 class Payments extends React.Component {
   render() {
     return (
@@ -13,10 +17,10 @@ class Payments extends React.Component {
           alipay={true}
           description="survey_project_campaign"
           email="ofodilechukwuka@gmail.com"
-          image="https://www.pexels.com/photo/bank-blur-business-buy-259200/"
+          // image="../../public/pexels-pixabay-259200.jpg"
           name="Emaily App"
           stripeKey={process.env.REACT_APP_STRIPE_KEY}
-          token={(token) => console.log(token)}
+          token={(token) => this.props.handleToken(token)}
         >
           <button className="btn btn-default btn-primary">Make Payments</button>
         </StripeCheckout>
@@ -25,4 +29,4 @@ class Payments extends React.Component {
   }
 }
 
-export default Payments;
+export default connect(null, actions)(Payments);
