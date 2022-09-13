@@ -48,7 +48,7 @@ require("./routes/billingRoutes")(app);
 // billingRoutes(app);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("clienty/build"));
 
   const path = require("path");
 
