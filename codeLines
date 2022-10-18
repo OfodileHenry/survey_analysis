@@ -1,0 +1,8 @@
+git status
+
+git add .
+
+git commit -m "final commit before deployment"
+
+git push heroku master
+   
